@@ -1,11 +1,10 @@
 import Github from "@auth/core/providers/github";
+import Google from "@auth/core/providers/google";
+import { Password } from "@convex-dev/auth/providers/Password";
 import { convexAuth } from "@convex-dev/auth/server";
 
 export const { auth, signIn, signOut, store } = convexAuth({
   providers: [
-    Github({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET
-    }),
+    Password, Github, Google,
   ],
 });
